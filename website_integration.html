@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColPR Software Consultants - Chatbot Integration</title>
+    <style>
+        /* Chatbot Widget Styles */
+        #colpr-chatbot-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 400px;
+            height: 600px;
+            z-index: 10000;
+            display: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+        }
+
+        #colpr-chatbot-widget iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1a3c6e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10001;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        #chatbot-toggle:hover {
+            background: #f28c38;
+            transform: scale(1.1);
+        }
+
+        #chatbot-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10002;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #chatbot-close:hover {
+            background: #cc0000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #colpr-chatbot-widget {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                right: 0;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your website content here -->
+    <h1>Welcome to ColPR Software Consultants</h1>
+    <p>Your website content goes here...</p>
+
+    <!-- Chatbot Widget -->
+    <div id="colpr-chatbot-widget">
+        <button id="chatbot-close" onclick="closeChatbot()">×</button>
+        <iframe 
+            id="chatbot-iframe"
+            src="https://your-chatbot-url.onrender.com" 
+            allow="microphone; camera">
+        </iframe>
+    </div>
+
+    <!-- Chat Button -->
+    <button id="chatbot-toggle" onclick="openChatbot()" title="Chat with us">
+        💬
+    </button>
+
+    <script>
+        // Replace with your actual chatbot URL
+        const CHATBOT_URL = 'https://your-chatbot-url.onrender.com';
+
+        function openChatbot() {
+            const widget = document.getElementById('colpr-chatbot-widget');
+            const button = document.getElementById('chatbot-toggle');
+            const iframe = document.getElementById('chatbot-iframe');
+            
+            // Set iframe source if not already set
+            if (!iframe.src || iframe.src === 'about:blank') {
+                iframe.src = CHATBOT_URL;
+            }
+            
+            widget.style.display = 'block';
+            button.style.display = 'none';
+        }
+
+        function closeChatbot() {
+            const widget = document.getElementById('colpr-chatbot-widget');
+            const button = document.getElementById('chatbot-toggle');
+            
+            widget.style.display = 'none';
+            button.style.display = 'flex';
+        }
+
+        // Close chatbot when clicking outside (optional)
+        document.addEventListener('click', function(event) {
+            const widget = document.getElementById('colpr-chatbot-widget');
+            const button = document.getElementById('chatbot-toggle');
+            
+            if (widget.style.display === 'block' && 
+                !widget.contains(event.target) && 
+                event.target !== button) {
+                // Uncomment to enable click-outside-to-close
+                // closeChatbot();
+            }
+        });
+
+        // Handle iframe messages (if needed for communication)
+        window.addEventListener('message', function(event) {
+            // Verify origin for security
+            if (event.origin !== CHATBOT_URL) {
+                return;
+            }
+            
+            // Handle messages from chatbot iframe
+            console.log('Message from chatbot:', event.data);
+        });
+    </script>
+</body>
+</html>
+

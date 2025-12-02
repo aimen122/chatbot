@@ -1,0 +1,51 @@
+<button id="chatButton" onclick="toggleChat()"
+        style="
+          background-color:#F7B500;
+          color:white;
+          border:none;
+          border-radius:8px;
+          padding:12px 18px;
+          font-size:16px;
+          cursor:pointer;
+          font-weight:bold;
+          position:fixed;
+          bottom:20px;
+          right:30px;
+          z-index:999999;
+          box-shadow:0 4px 8px rgba(0,0,0,0.3);
+          transition:all 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='#003D63';"
+        onmouseout="this.style.backgroundColor='#F7B500';">
+  💬 Chat
+</button>
+
+<!-- Chatbot Embed -->
+<div id="chatbot-container" style="
+      display:none;
+      position:fixed;
+      bottom:80px;
+      right:30px;
+      background-color:transparent;
+      border:none;
+      border-radius:15px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.3);
+      overflow:hidden;
+      z-index:999998;
+      min-width: 520px;
+      min-height: 620px;">
+  <iframe src="http://127.0.0.1:5000/"
+          width="500"
+          height="600"
+          style="border:none; border-radius:10px;">
+  </iframe>
+</div>
+
+<script>
+function toggleChat() {
+  const chat = document.getElementById('chatbot-container');
+  chat.style.display = (chat.style.display === 'none' || chat.style.display === '') 
+    ? 'block' 
+    : 'none';
+}
+</script>
