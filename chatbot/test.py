@@ -902,7 +902,8 @@ def call_deepseek_chat(messages):
 @app.route('/')
 def home():
     """Serve the main chat interface"""
-    with open('templates/chat.html', 'r', encoding='utf-8') as f:
+    template_path = os.path.join(BASE_DIR, 'templates', 'chat.html')
+    with open(template_path, 'r', encoding='utf-8') as f:
         return f.read()
 
 
