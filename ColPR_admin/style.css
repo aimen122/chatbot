@@ -1,0 +1,303 @@
+/* Shared Styles for Auth and Modal */
+.auth-container {
+    max-width: 450px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation: fadeInGlow 0.8s ease-in-out;
+}
+
+@keyframes fadeInGlow {
+    from { opacity: 0; transform: translateY(-40px); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+    to { opacity: 1; transform: translateY(0); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
+}
+
+.error {
+    color: #000000;
+    background: #e5e5e5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    animation: pulse 1.5s infinite;
+}
+
+.success {
+    color: #000000;
+    background: #e5e5e5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeInBackdrop 0.5s ease-in-out;
+}
+
+@keyframes fadeInBackdrop {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: #ffffff;
+    margin: 5% auto;
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 90%;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation: slideUpGlow 0.6s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slideUpGlow {
+    from { opacity: 0; transform: translateY(60px); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+    to { opacity: 1; transform: translateY(0); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); }
+}
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.close:hover,
+.close:focus {
+    color: #000000;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#proposalContent {
+    white-space: pre-wrap;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Dashboard Styles */
+body {
+    background: #f5f5f5;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+#sidebar {
+    background: #f5f5f5;
+    width: 280px;
+    padding: 30px;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+#sidebar.active {
+    transform: translateX(0);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-link {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px 20px;
+    color: #000000;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+
+.sidebar-link:hover {
+    background: #e5e5e5;
+    transform: translateX(10px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    color: #000000;
+}
+
+.main-content {
+    padding: 40px;
+    background: #f5f5f5;
+    transition: margin-left 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.main-content h1 {
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#toggle-btn {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#theme-switch {
+    background: #ffffff;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#theme-switch:hover {
+    background: #e5e5e5;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.search-container {
+    position: relative;
+    min-width: 250px;
+}
+
+.search-container input {
+    padding: 15px 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 25px;
+    background: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    border-color: rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.search-container svg {
+    left: 15px;
+    color: #000000;
+}
+
+table {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+th {
+    background: #f5f5f5;
+    color: #000000;
+    padding: 15px;
+    font-weight: 700;
+}
+
+td {
+    color: #000000;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+tr:hover {
+    background: #e5e5e5;
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+}
+
+.action-buttons button {
+    background: #ffffff;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.action-buttons button:hover {
+    background: #e5e5e5;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.overview-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.overview-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.overview-card h3 {
+    color: #000000;
+    font-weight: 600;
+}
+
+.overview-card p {
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.notification {
+    border-radius: 15px;
+    padding: 15px 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation: slideIn 0.6s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+    #sidebar {
+        width: 240px;
+    }
+    .modal-content {
+        margin: 10% auto;
+    }
+}
